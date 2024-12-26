@@ -25,3 +25,7 @@
 .tr-scrollbar::-webkit-scrollbar-track {
   background-color: transparent !important;
 }
+
+.swiper-pagination-bullet-active {
+  background: #27a7e7 !important;
+}

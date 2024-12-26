@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const BotCard = ({ title, description, label, imgSrc, onClick }) => (
   <div className="flex items-center gap-10 min-w-max">
@@ -122,41 +122,43 @@ const Main = () => {
             </Link>
           </div>
           <div className="mt-3.5 overflow-x-hidden text-sm flex flex-col gap-4">
-            <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-              {botData.map((bot) => (
-                <BotCard
-                  key={bot.id}
-                  title={bot.title}
-                  description={bot.description}
-                  label={bot.label}
-                  imgSrc={bot.imgSrc}
-                  onClick={() => handleNavigate(bot.path)}
-                />
-              ))}
-            </div>
-            <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-              {botData.map((bot) => (
-                <BotCard
-                  key={bot.id}
-                  title={bot.title}
-                  description={bot.description}
-                  label={bot.label}
-                  imgSrc={bot.imgSrc}
-                  onClick={() => handleNavigate(bot.path)}
-                />
-              ))}
-            </div>
-            <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-              {botData.map((bot) => (
-                <BotCard
-                  key={bot.id}
-                  title={bot.title}
-                  description={bot.description}
-                  label={bot.label}
-                  imgSrc={bot.imgSrc}
-                  onClick={() => handleNavigate(bot.path)}
-                />
-              ))}
+            <div className="overflow-x-auto">
+              <div className="flex items-center gap-7 tr-scrollbar">
+                {botData.map((bot) => (
+                  <BotCard
+                    key={bot.id}
+                    title={bot.title}
+                    description={bot.description}
+                    label={bot.label}
+                    imgSrc={bot.imgSrc}
+                    onClick={() => handleNavigate(bot.path)}
+                  />
+                ))}
+              </div>
+              <div className="flex items-center gap-7 tr-scrollbar">
+                {botData.map((bot) => (
+                  <BotCard
+                    key={bot.id}
+                    title={bot.title}
+                    description={bot.description}
+                    label={bot.label}
+                    imgSrc={bot.imgSrc}
+                    onClick={() => handleNavigate(bot.path)}
+                  />
+                ))}
+              </div>
+              <div className="flex items-center gap-7 tr-scrollbar">
+                {botData.map((bot) => (
+                  <BotCard
+                    key={bot.id}
+                    title={bot.title}
+                    description={bot.description}
+                    label={bot.label}
+                    imgSrc={bot.imgSrc}
+                    onClick={() => handleNavigate(bot.path)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

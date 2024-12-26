@@ -1,4 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper/modules";
 
 const BotCard = ({ title, description, label, imgSrc, onClick }) => (
   <div className="flex items-center gap-10 min-w-max">
@@ -83,11 +87,40 @@ const Home = () => {
 
       {/* Featured Image */}
       <div className="border-b-[0.5px] py-3.5">
-        <img
-          src="/img/check.png"
-          alt="Featured"
-          className="object-cover w-full h-40 rounded-3xl"
-        />
+        <Swiper
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+          spaceBetween={20}
+          slidesPerView={1}
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+        >
+          <SwiperSlide>
+            <img
+              src="/img/check.png"
+              alt="Featured"
+              className="object-cover w-full h-40 rounded-3xl"
+            />
+          </SwiperSlide>
+        
+          
+          <SwiperSlide>
+            <img
+              src="/img/check.png"
+              alt="Featured"
+              className="object-cover w-full h-40 rounded-3xl"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="/img/check.png"
+              alt="Featured"
+              className="object-cover w-full h-40 rounded-3xl"
+            />
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       {/* Top Section */}
@@ -99,41 +132,43 @@ const Home = () => {
           </Link>
         </div>
         <div className="mt-3.5 overflow-x-hidden text-sm flex flex-col gap-4">
-          <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-            {botData.map((bot) => (
-              <BotCard
-                key={bot.id}
-                title={bot.title}
-                description={bot.description}
-                label={bot.label}
-                imgSrc={bot.imgSrc}
-                onClick={() => handleNavigate(bot.path)}
-              />
-            ))}
-          </div>
-          <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-            {botData.map((bot) => (
-              <BotCard
-                key={bot.id}
-                title={bot.title}
-                description={bot.description}
-                label={bot.label}
-                imgSrc={bot.imgSrc}
-                onClick={() => handleNavigate(bot.path)}
-              />
-            ))}
-          </div>
-          <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-            {botData.map((bot) => (
-              <BotCard
-                key={bot.id}
-                title={bot.title}
-                description={bot.description}
-                label={bot.label}
-                imgSrc={bot.imgSrc}
-                onClick={() => handleNavigate(bot.path)}
-              />
-            ))}
+          <div className="overflow-x-auto">
+            <div className="flex items-center gap-7 tr-scrollbar">
+              {botData.map((bot) => (
+                <BotCard
+                  key={bot.id}
+                  title={bot.title}
+                  description={bot.description}
+                  label={bot.label}
+                  imgSrc={bot.imgSrc}
+                  onClick={() => handleNavigate(bot.path)}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-7 tr-scrollbar">
+              {botData.map((bot) => (
+                <BotCard
+                  key={bot.id}
+                  title={bot.title}
+                  description={bot.description}
+                  label={bot.label}
+                  imgSrc={bot.imgSrc}
+                  onClick={() => handleNavigate(bot.path)}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-7 tr-scrollbar">
+              {botData.map((bot) => (
+                <BotCard
+                  key={bot.id}
+                  title={bot.title}
+                  description={bot.description}
+                  label={bot.label}
+                  imgSrc={bot.imgSrc}
+                  onClick={() => handleNavigate(bot.path)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -147,41 +182,43 @@ const Home = () => {
           </Link>
         </div>
         <div className="mt-3.5 overflow-x-hidden text-sm flex flex-col gap-4">
-          <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-            {botData.map((bot) => (
-              <BotCard
-                key={bot.id}
-                title={bot.title}
-                description={bot.description}
-                label={bot.label}
-                imgSrc={bot.imgSrc}
-                onClick={() => handleNavigate(bot.path)}
-              />
-            ))}
-          </div>
-          <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-            {botData.map((bot) => (
-              <BotCard
-                key={bot.id}
-                title={bot.title}
-                description={bot.description}
-                label={bot.label}
-                imgSrc={bot.imgSrc}
-                onClick={() => handleNavigate(bot.path)}
-              />
-            ))}
-          </div>
-          <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
-            {botData.map((bot) => (
-              <BotCard
-                key={bot.id}
-                title={bot.title}
-                description={bot.description}
-                label={bot.label}
-                imgSrc={bot.imgSrc}
-                onClick={() => handleNavigate(bot.path)}
-              />
-            ))}
+          <div className="overflow-x-auto">
+            <div className="flex items-center gap-7 tr-scrollbar">
+              {botData.map((bot) => (
+                <BotCard
+                  key={bot.id}
+                  title={bot.title}
+                  description={bot.description}
+                  label={bot.label}
+                  imgSrc={bot.imgSrc}
+                  onClick={() => handleNavigate(bot.path)}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-7 tr-scrollbar">
+              {botData.map((bot) => (
+                <BotCard
+                  key={bot.id}
+                  title={bot.title}
+                  description={bot.description}
+                  label={bot.label}
+                  imgSrc={bot.imgSrc}
+                  onClick={() => handleNavigate(bot.path)}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-7 tr-scrollbar">
+              {botData.map((bot) => (
+                <BotCard
+                  key={bot.id}
+                  title={bot.title}
+                  description={bot.description}
+                  label={bot.label}
+                  imgSrc={bot.imgSrc}
+                  onClick={() => handleNavigate(bot.path)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
