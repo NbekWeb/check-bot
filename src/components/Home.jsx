@@ -89,7 +89,7 @@ const Home = () => {
       <div className="border-b-[0.5px] py-3.5">
         <Swiper
           autoplay={{
-            delay: 2000,
+            delay: 5000,
             disableOnInteraction: false,
           }}
           spaceBetween={20}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 const BotCard = ({ title, description, label, imgSrc, onClick }) => (
   <div className="flex items-center gap-10 min-w-max">
@@ -24,6 +24,7 @@ const BotCard = ({ title, description, label, imgSrc, onClick }) => (
 const Main = () => {
   const [step, setStep] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const botData = [
     {
@@ -44,6 +45,9 @@ const Main = () => {
     },
   ];
 
+  const hasSpamCategory =
+    new URLSearchParams(location.search).get("category") === "spam";
+
   const goPage = () => {
     if (step == 0) {
       setStep(1);
@@ -56,11 +60,15 @@ const Main = () => {
       <div className="flex items-center gap-4  border-b-[0.5px] border-white pb-3">
         <img
           src="/img/check.png"
-          className="object-cover h-26 w-26 rounded-2xl"
+          className={`object-cover h-26 w-26 rounded-2xl ${hasSpamCategory&&'border-4 border-red'}`}
         />
         <div className="flex flex-col justify-between flex-grow">
           <span className="text-2xl font-semibold">Бот №1</span>
-          <span className="text-sm text-yellow-500">Выбор редакции</span>
+          {hasSpamCategory ? (
+            <span className="text-sm text-red">SCAM</span>
+          ) : (
+            <span className="text-sm text-yellow-500">Выбор редакции</span>
+          )}
           <span className="text-base font-medium">Мини описание</span>
           <div className="flex items-center justify-between ">
             <button className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80">

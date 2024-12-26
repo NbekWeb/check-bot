@@ -4,7 +4,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const goBot = () => {
-    navigate("/bot");
+    navigate("/bot?category=spam");
   };
 
   // Sample data for bots
