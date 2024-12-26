@@ -73,11 +73,11 @@ const Main = () => {
       <div className="mt-2.5">
         <div className="flex items-center gap-3.5">
           <img src="/img/like.png" className="w-11" />
-          <img src="/img/dislike.png" className="w-11" />
+          <img src="/img/dislike.png" className="rotate-180 w-11" />
           <button className="flex items-center h-10 px-4 text-2xl font-semibold bg-blue-500 rounded-xl">
             11/11
           </button>
-          <button className="flex flex-col justify-center h-10 gap-0 px-5 text-xs font-semibold bg-blue-500 rounded-xl">
+          <button className="flex flex-col items-center justify-center h-10 gap-0 px-5 text-xs font-semibold bg-blue-500 rounded-xl">
             <span className="">РЕЙТИНГ</span> №1
           </button>
         </div>
