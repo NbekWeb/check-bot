@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import Home from "./components/Home";
 import Bot from "./components/Bot";
 import SeeAll from "./components/SeeAll";
+import Spam from "./components/Spam";
 import AllCategory from "./components/AllCategory";
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/bot" element={<Bot />} />
           <Route path="/see-all" element={<SeeAll />} />
           <Route path="/all-category" element={<AllCategory />} />
+          <Route path="/spam" element={<Spam />} />
         </Routes>
       </Router>
     </div>

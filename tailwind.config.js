@@ -9,6 +9,7 @@ module.exports = {
         'yellow-500': "#FFAD28",
         dark:'#03161F',
         "dark-500":'#08364D',
+        red:'#FF0000'
       },
       spacing:{
         '0.5':'2px',
