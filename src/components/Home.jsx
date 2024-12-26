@@ -14,9 +14,7 @@ const BotCard = ({ title, description, label, imgSrc, onClick }) => (
         <span className="text-base font-medium">{description}</span>
       </div>
     </div>
-    <button
-      className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80"
-    >
+    <button className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80">
       ОТКРЫТЬ
     </button>
   </div>
@@ -27,6 +25,10 @@ const Home = () => {
 
   const handleNavigate = (path) => {
     navigate(path);
+  };
+
+  const goCategory = () => {
+    navigate("/all-category");
   };
 
   const botData = [
@@ -65,6 +67,7 @@ const Home = () => {
         <div className="flex items-center gap-4 overflow-x-auto text-base font-semibold tr-scrollbar">
           {["Все категории", "Торговля", "Кошельки"].map((category, index) => (
             <button
+              onClick={() => goCategory()}
               key={index}
               className="px-4 py-2 bg-blue-500 rounded-lg min-w-max"
             >
@@ -103,7 +106,7 @@ const Home = () => {
                 onClick={() => handleNavigate(bot.path)}
               />
             ))}
-          </div> 
+          </div>
           <div className="flex items-center overflow-x-auto gap-7 tr-scrollbar">
             {botData.map((bot) => (
               <BotCard

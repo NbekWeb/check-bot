@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import Home from "./components/Home";
 import Bot from "./components/Bot";
 import SeeAll from "./components/SeeAll";
-// import AllCategory from "./components/SeeAll";
+import AllCategory from "./components/AllCategory";
 
 const App = () => {
   return (
@@ -20,6 +20,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/bot" element={<Bot />} />
           <Route path="/see-all" element={<SeeAll />} />
+          <Route path="/all-category" element={<AllCategory />} />
         </Routes>
       </Router>
     </div>
