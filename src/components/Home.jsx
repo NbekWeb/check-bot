@@ -14,7 +14,10 @@ const BotCard = ({ title, description, label, imgSrc, onClick }) => (
         <span className="text-base font-medium">{description}</span>
       </div>
     </div>
-    <button className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80">
+    <button
+      onClick={onClick}
+      className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80"
+    >
       ОТКРЫТЬ
     </button>
   </div>
@@ -25,6 +28,7 @@ const Home = () => {
 
   const handleNavigate = (path) => {
     navigate(path);
+    console.log("sa");
   };
 
   const goCategory = () => {
