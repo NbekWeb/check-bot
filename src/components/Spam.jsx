@@ -24,12 +24,12 @@ const Home = () => {
           className="flex-grow bg-transparent border-none outline-none"
         />
       </div>
-      <div className="my-2.5 text-xl pr-10">
+      <div className="my-2.5 text-xl ">
         <h3 className="text-3xl font-semibold">Черный список</h3>
         <p className="mt-2 ">Список скампроектов и скам ботов.</p>
         <p>Проверяйте через поиск всех новые боты, чтобы обезопасить себя. </p>
       </div>
-      <div className="flex flex-col gap-2.5 pr-15">
+      <div className="flex flex-col gap-2.5">
         {bots.map((bot) => (
           <div key={bot.id} className="flex items-center justify-between">
             <div className="flex items-center gap-3.5">
