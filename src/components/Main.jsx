@@ -32,30 +32,23 @@ const Main = () => {
             <p className="text-2xl font-medium">
               On this unit you can select a bot:
             </p>
-            <span className="flex mt-2">
-              For buying and selling cryptocurrency For automated trading To
-              collect and analyze all the latest news and insights on the market{" "}
-              <br />
-              For copy trading For sending funds and storage For chart analysis
-              and technical analysis For P2P trading To obtain up-to-date data
-              on rates and trading volumes
-            </span>
+            <ul className="mt-5 list-disc list-inside">
+              <li>For buying and selling cryptocurrency </li>
+              <li>For automated trading</li>
+              <li>
+                To collect and analyze all the latest news and insights on the
+                market
+              </li>
+              <li> For copy trading </li>
+              <li>For sending funds and storage </li>
+              <li>For chart analysis and technical analysis</li>
+              <li>For P2P trading</li>
+              <li> To obtain up-to-date data on rates and trading volumes</li>
+            </ul>
           </div>
           <span className="flex mx-auto text-center">
             @ 2025 TopBotCheck <br /> by 3A Project
           </span>
-          {/* <ul className="mt-5 list-disc list-inside">
-            <li>Для покупки и продажи криптовалюты</li>
-            <li>Для автоматизированной торговли </li>
-            <li>
-              Для сбора и анализа всех актуальных новостей и инсайдов на рынке
-            </li>
-            <li>Для снайпинга</li>
-            <li>Для отправка средств и хранению</li>
-            <li>Для анализа графиков и технический анализ</li>
-            <li>Для Р2Р торговли</li>
-            <li>Для получения актуальные данные о курсах и объемах торгов</li>
-          </ul> */}
         </div>
       )}
       <div className="flex flex-col justify-end flex-grow gap-5">
