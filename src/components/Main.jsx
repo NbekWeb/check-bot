@@ -29,7 +29,9 @@ const Main = () => {
       ) : (
         <div className="flex flex-col justify-between flex-grow h-full mt-8 text-xl ">
           <div>
-            <p className="text-2xl font-medium">On this unit you can select a bot:</p>
+            <p className="text-2xl font-medium">
+              On this unit you can select a bot:
+            </p>
             <span className="flex mt-2">
               For buying and selling cryptocurrency For automated trading To
               collect and analyze all the latest news and insights on the market{" "}
@@ -39,8 +41,8 @@ const Main = () => {
               on rates and trading volumes
             </span>
           </div>
-          <span className="flex px-12 text-center">
-            @ 2025 TopBotCheck by 3A Project
+          <span className="flex mx-auto text-center">
+            @ 2025 TopBotCheck <br /> by 3A Project
           </span>
           {/* <ul className="mt-5 list-disc list-inside">
             <li>Для покупки и продажи криптовалюты</li>

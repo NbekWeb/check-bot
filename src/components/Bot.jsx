@@ -81,19 +81,16 @@ const Main = () => {
         </div>
       </div>
       <div className="mt-2.5">
-        <div className="flex items-center gap-3.5 justify-between">
-          <div className="flex items-center gap-3.5">
-            <img src="/img/like.png" className="w-11" />
-            <img src="/img/dislike.png" className="rotate-180 w-11" />
-          </div>
-          <div className="flex items-center gap-3.5">
-            <button className="flex items-center h-10 px-4 text-2xl font-semibold bg-blue-500 rounded-xl">
-              11/11
-            </button>
-            <button className="flex flex-col items-center justify-center h-10 gap-0 px-5 text-xs font-semibold bg-blue-500 rounded-xl">
-              <span className="">RATING</span> №1
-            </button>
-          </div>
+        <div className="flex items-center gap-3.5 ">
+         
+          <img src="/img/like.png" className="w-11" />
+          <img src="/img/dislike.png" className="rotate-180 w-11" />
+          <button className="flex items-center h-10 px-4 text-2xl font-semibold bg-blue-500 rounded-xl">
+            11/11
+          </button>
+          <button className="flex flex-col items-center justify-center h-10 gap-0 px-5 text-xs font-semibold bg-blue-500 rounded-xl">
+            <span className="">RATING</span> №1
+          </button>
         </div>
         <div className="mt-4 overflow-x-hidden">
           <div className="flex gap-4 overflow-x-auto tr-scrollbar">

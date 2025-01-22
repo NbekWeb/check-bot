@@ -4,7 +4,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
-const BotCard = ({ title, description, label, imgSrc, onClick }) => (
+const BotCard = ({
+  title,
+  description,
+  label,
+  imgSrc,
+  onClick,
+  show = false,
+}) => (
   <div className="flex items-center gap-10 min-w-max">
     <div className="flex gap-3.5 items-center">
       <img
@@ -14,7 +21,10 @@ const BotCard = ({ title, description, label, imgSrc, onClick }) => (
       />
       <div className="flex flex-col justify-between">
         <span className="text-base font-semibold">{title}</span>
-        <span className="text-xs font-medium text-yellow-500">{label}</span>
+
+        {show && (
+          <span className="text-xs font-medium text-yellow-500">{label}</span>
+        )}
         <span className="text-base font-medium">{description}</span>
       </div>
     </div>
@@ -134,10 +144,11 @@ const Home = () => {
           </Link>
         </div>
         <div className="mt-3.5 overflow-x-hidden text-sm flex flex-col gap-4">
-          <div className="overflow-x-auto">
-            <div className="flex items-center gap-7 tr-scrollbar">
-              {botData.map((bot) => (
+          <div className="flex flex-col gap-4 overflow-x-auto tr-scrollbar">
+            <div className="flex items-center gap-7 ">
+              {botData.map((bot, i) => (
                 <BotCard
+                  show={i == 0 && true}
                   key={bot.id}
                   title={bot.title}
                   description={bot.description}
@@ -147,9 +158,10 @@ const Home = () => {
                 />
               ))}
             </div>
-            <div className="flex items-center gap-7 tr-scrollbar">
-              {botData.map((bot) => (
+            <div className="flex items-center gap-7 ">
+              {botData.map((bot, i) => (
                 <BotCard
+                  show={i == 0  && true}
                   key={bot.id}
                   title={bot.title}
                   description={bot.description}
@@ -159,7 +171,7 @@ const Home = () => {
                 />
               ))}
             </div>
-            <div className="flex items-center gap-7 tr-scrollbar">
+            <div className="flex items-center gap-7 ">
               {botData.map((bot) => (
                 <BotCard
                   key={bot.id}
@@ -187,8 +199,21 @@ const Home = () => {
           </Link>
         </div>
         <div className="mt-3.5 overflow-x-hidden text-sm flex flex-col gap-4">
-          <div className="overflow-x-auto">
-            <div className="flex items-center gap-7 tr-scrollbar">
+          <div className="flex flex-col gap-4 overflow-x-auto tr-scrollbar">
+            <div className="flex items-center gap-7">
+              {botData.map((bot,i) => (
+                <BotCard
+                show={i==0}
+                  key={bot.id}
+                  title={bot.title}
+                  description={bot.description}
+                  label={bot.label}
+                  imgSrc={bot.imgSrc}
+                  onClick={() => handleNavigate(bot.path)}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-7 ">
               {botData.map((bot) => (
                 <BotCard
                   key={bot.id}
@@ -200,19 +225,7 @@ const Home = () => {
                 />
               ))}
             </div>
-            <div className="flex items-center gap-7 tr-scrollbar">
-              {botData.map((bot) => (
-                <BotCard
-                  key={bot.id}
-                  title={bot.title}
-                  description={bot.description}
-                  label={bot.label}
-                  imgSrc={bot.imgSrc}
-                  onClick={() => handleNavigate(bot.path)}
-                />
-              ))}
-            </div>
-            <div className="flex items-center gap-7 tr-scrollbar">
+            <div className="flex items-center gap-7 ">
               {botData.map((bot) => (
                 <BotCard
                   key={bot.id}
