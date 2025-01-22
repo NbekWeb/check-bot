@@ -10,7 +10,7 @@ const Home = () => {
   // Sample data for bots
   const bots = new Array(20).fill(null).map((_, index) => ({
     id: index + 1,
-    name: `Бот №${index + 1}`,
+    name: `Bot №${index + 1}`,
     status: "SCAM",
   }));
 
@@ -20,14 +20,14 @@ const Home = () => {
         <img src="/img/search.svg" alt="Search Icon" />
         <input
           type="text"
-          placeholder="Поиск"
+          placeholder="Search"
           className="flex-grow bg-transparent border-none outline-none"
         />
       </div>
       <div className="my-2.5 text-xl ">
-        <h3 className="text-3xl font-semibold">Черный список</h3>
-        <p className="mt-2 ">Список скампроектов и скам ботов.</p>
-        <p>Проверяйте через поиск всех новые боты, чтобы обезопасить себя. </p>
+        <h3 className="text-3xl font-semibold">Blacklist </h3>
+        <p className="mt-2 ">List of scam projects and scam bots.</p>
+        <p> Check all new bots through search to protect yourself.  </p>
       </div>
       <div className="flex flex-col gap-2.5">
         {bots.map((bot) => (
@@ -47,7 +47,7 @@ const Home = () => {
               onClick={goBot}
               className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80"
             >
-              ОТКРЫТЬ
+              OPEN
             </button>
           </div>
         ))}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 const BotCard = ({ title, description, label, imgSrc, onClick }) => (
   <div className="flex items-center justify-between">
@@ -15,114 +15,133 @@ const BotCard = ({ title, description, label, imgSrc, onClick }) => (
         <span className="text-base font-medium">{description}</span>
       </div>
     </div>
-    <button className="bg-blue-500 mr-5 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80">
-      ОТКРЫТЬ
+    <button
+      onClick={onClick}
+      className="bg-blue-500 mr-5 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80"
+    >
+      OPEN
     </button>
   </div>
 );
 
 const AllCategory = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
   const handleNavigate = (path) => {
     navigate(path);
   };
 
+  const searchParams = new URLSearchParams(location.search);
+  const category = searchParams.get("category") || "all";
+
   const botData = [
     {
       id: 1,
-      title: "Бот №1",
-      description: "Описание",
-      label: "Выбор редакции",
+      title: "Bot №1",
+      description: "Description",
+      label: "Editor's Choice",
       imgSrc: "/img/check.png",
       path: "/bot",
     },
     {
       id: 2,
-      title: "Бот №2",
-      description: "Описание",
-      label: "Выбор редакции",
+      title: "Bot №2",
+      description: "Description",
+      label: "Editor's Choice",
       imgSrc: "/img/check.png",
       path: "/bot",
     },
     {
       id: 3,
-      title: "Бот №3",
-      description: "Описание",
+      title: "Bot №3",
+      description: "Description",
       label: "",
       imgSrc: "/img/check.png",
       path: "/bot",
     },
     {
       id: 4,
-      title: "Бот №4",
-      description: "Описание",
+      title: "Bot №4",
+      description: "Description",
       label: "",
       imgSrc: "/img/check.png",
       path: "/bot",
     },
     {
-        id: 5,
-        title: "Бот №5",
-        description: "Описание",
-        label: "",
-        imgSrc: "/img/check.png",
-        path: "/bot",
-      },
-      {
-        id: 6,
-        title: "Бот №6",
-        description: "Описание",
-        label: "",
-        imgSrc: "/img/check.png",
-        path: "/bot",
-      },
-      {
-        id: 7,
-        title: "Бот №7",
-        description: "Описание",
-        label: "",
-        imgSrc: "/img/check.png",
-        path: "/bot",
-      },
-      {
-        id: 8,
-        title: "Бот №8",
-        description: "Описание",
-        label: "",
-        imgSrc: "/img/check.png",
-        path: "/bot",
-      },
-      {
-        id: 9,
-        title: "Бот №9",
-        description: "Описание",
-        label: "",
-        imgSrc: "/img/check.png",
-        path: "/bot",
-      },
-      {
-        id: 10,
-        title: "Бот №10",
-        description: "Описание",
-        label: "",
-        imgSrc: "/img/check.png",
-        path: "/bot",
-      },
-      {
-        id: 11,
-        title: "Бот №11",
-        description: "Описание",
-        label: "",
-        imgSrc: "/img/check.png",
-        path: "/bot",
-      },
+      id: 5,
+      title: "Bot №5",
+      description: "Description",
+      label: "",
+      imgSrc: "/img/check.png",
+      path: "/bot",
+    },
+    {
+      id: 6,
+      title: "Bot №6",
+      description: "Description",
+      label: "",
+      imgSrc: "/img/check.png",
+      path: "/bot",
+    },
+    {
+      id: 7,
+      title: "Bot №7",
+      description: "Description",
+      label: "",
+      imgSrc: "/img/check.png",
+      path: "/bot",
+    },
+    {
+      id: 8,
+      title: "Bot №8",
+      description: "Description",
+      label: "",
+      imgSrc: "/img/check.png",
+      path: "/bot",
+    },
+    {
+      id: 9,
+      title: "Bot №9",
+      description: "Description",
+      label: "",
+      imgSrc: "/img/check.png",
+      path: "/bot",
+    },
+    {
+      id: 10,
+      title: "Bot №10",
+      description: "Description",
+      label: "",
+      imgSrc: "/img/check.png",
+      path: "/bot",
+    },
+    {
+      id: 11,
+      title: "Bot №11",
+      description: "Description",
+      label: "",
+      imgSrc: "/img/check.png",
+      path: "/bot",
+    },
   ];
 
   return (
     <div className="text-white tr-scrollbar">
-    
-    <h2 className="text-2xl font-semibold">Топ за всё время  </h2>
+      <h2 className="text-2xl font-semibold">
+        {category == "all"
+          ? "Top of all time"
+          : category === "new"
+          ? "New"
+          : category === "trading"
+          ? "Trading"
+          : category === "wallets"
+          ? "Wallets"
+          : category === "copytrade"
+          ? "Copytrade"
+          : category === "scanners"
+          ? "Scanners"
+          : " For chat"}
+      </h2>
       <div className="flex flex-col gap-4 mt-3">
         {botData.map((bot) => (
           <BotCard

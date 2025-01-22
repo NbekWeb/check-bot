@@ -16,7 +16,7 @@ const BotCard = ({ title, description, label, imgSrc, onClick }) => (
       </div>
     </div>
     <button className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80">
-      ОТКРЫТЬ
+      OPEN
     </button>
   </div>
 );
@@ -29,17 +29,17 @@ const Main = () => {
   const botData = [
     {
       id: 1,
-      title: "Бот №1",
-      description: "Описание",
-      label: "Выбор редакции",
+      title: "Bot №1",
+      description: "Description",
+      label: "Editor's Choice",
       imgSrc: "/img/check.png",
       path: "/bot",
     },
     {
       id: 2,
-      title: "Бот №2",
-      description: "Описание",
-      label: "Выбор редакции",
+      title: "Bot №2",
+      description: "Description",
+      label: "Editor's Choice",
       imgSrc: "/img/check.png",
       path: "/bot",
     },
@@ -60,34 +60,40 @@ const Main = () => {
       <div className="flex items-center gap-4  border-b-[0.5px] border-white pb-3">
         <img
           src="/img/check.png"
-          className={`object-cover h-26 w-26 rounded-2xl ${hasSpamCategory&&'border-4 border-red'}`}
+          className={`object-cover h-26 w-26 rounded-2xl ${
+            hasSpamCategory && "border-4 border-red"
+          }`}
         />
         <div className="flex flex-col justify-between flex-grow">
-          <span className="text-2xl font-semibold">Бот №1</span>
+          <span className="text-2xl font-semibold">Bot №1</span>
           {hasSpamCategory ? (
             <span className="text-sm text-red">SCAM</span>
           ) : (
-            <span className="text-sm text-yellow-500">Выбор редакции</span>
+            <span className="text-sm text-yellow-500">Editor's Choice</span>
           )}
-          <span className="text-base font-medium">Мини описание</span>
+          <span className="text-base font-medium"> Mini description</span>
           <div className="flex items-center justify-between ">
             <button className="bg-blue-500 text-sm flex items-center rounded-2xl px-2.5 py-1 hover:bg-blue-500/80">
-              ПЕРЕЙТИ
+              GO TO
             </button>
             <img src="/img/share.png" className="w-7" />
           </div>
         </div>
       </div>
       <div className="mt-2.5">
-        <div className="flex items-center gap-3.5">
-          <img src="/img/like.png" className="w-11" />
-          <img src="/img/dislike.png" className="rotate-180 w-11" />
-          <button className="flex items-center h-10 px-4 text-2xl font-semibold bg-blue-500 rounded-xl">
-            11/11
-          </button>
-          <button className="flex flex-col items-center justify-center h-10 gap-0 px-5 text-xs font-semibold bg-blue-500 rounded-xl">
-            <span className="">РЕЙТИНГ</span> №1
-          </button>
+        <div className="flex items-center gap-3.5 justify-between">
+          <div className="flex items-center gap-3.5">
+            <img src="/img/like.png" className="w-11" />
+            <img src="/img/dislike.png" className="rotate-180 w-11" />
+          </div>
+          <div className="flex items-center gap-3.5">
+            <button className="flex items-center h-10 px-4 text-2xl font-semibold bg-blue-500 rounded-xl">
+              11/11
+            </button>
+            <button className="flex flex-col items-center justify-center h-10 gap-0 px-5 text-xs font-semibold bg-blue-500 rounded-xl">
+              <span className="">RATING</span> №1
+            </button>
+          </div>
         </div>
         <div className="mt-4 overflow-x-hidden">
           <div className="flex gap-4 overflow-x-auto tr-scrollbar">
@@ -102,31 +108,31 @@ const Main = () => {
           </div>
         </div>
         <div className="mt-2">
-          <span className="flex mb-2 text-xl font-semibold">Описание</span>
+          <span className="flex mb-2 text-xl font-semibold">Description</span>
           <div className="flex flex-col w-full gap-4 px-5 pt-2 pb-10 text-base font-semibold rounded-xl bg-dark-500">
-            <span>Полное описание:</span>
-            <span>Что нового:</span>
+            <span>Full description:</span>
+            <span>What's new:</span>
           </div>
-          <div className="flex justify-between mt-4 pb-3.5 border-b-[0.5px] border-white">
+          <div className="flex gap-3 mt-4 pb-3.5 border-b-[0.5px] border-white">
             <button className="flex items-center px-4 py-1 text-base bg-blue-500 rounded-xl hover:bg-blue-500/80">
-              Гайд
+              Guide
             </button>
             <button className="flex items-center px-4 py-1 text-base bg-blue-500 rounded-xl hover:bg-blue-500/80">
-              Разработчик
+              Developer
             </button>
             <button className="flex items-center px-4 py-1 text-base bg-blue-500 rounded-xl hover:bg-blue-500/80">
-              Соц Сети
+              Social
             </button>
           </div>
         </div>
         <div className="pb-5 ">
           <div className="flex justify-between mt-1">
-            <h2 className="text-2xl font-semibold">Смотрите также</h2>
+            <h2 className="text-2xl font-semibold">See also</h2>
             <Link
-              to="/see-all"
+              to={{ pathname: "/see", search: "?category=all" }}
               className="text-sm underline underline-offset-1"
             >
-              Смотреть все
+              See all
             </Link>
           </div>
           <div className="mt-3.5 overflow-x-hidden text-sm flex flex-col gap-4">

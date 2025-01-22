@@ -13,23 +13,36 @@ const Main = () => {
     }
   };
   return (
-    <div className="flex flex-col justify-between flex-grow max-h-full min-h-full overflow-x-hidden overflow-y-hidden text-xl text-white">
+    <div className="flex flex-col justify-between flex-grow max-h-full min-h-full overflow-x-hidden overflow-y-hidden text-xl text-white ">
       {step == 0 ? (
         <div>
-          <h1 className="pr-32 text-6xl font-semibold ">Check Bot</h1>
+          <h1 className="pr-32 text-6xl font-semibold ">Top Bot Check</h1>
           <p className="pr-2 mt-3 ">
-            Платформа где собраны самые лучшие и полезные боты и миниаппы. Для
-            облегчения поиска введена система рейтингов и топов самых
-            актуальных, полезных и безопасных ботов. Также данный проект
-            направлен на помощь разработчикам в реализации и продвижение своих
-            ботов. На данной платформе каждый разработчик сможет выложить свой
-            проект и продвигать по средствам общего рейтинга.
+            A platform where the best and most useful bots and mini-apps are
+            collected. To make searching easier, a system of ratings and tops of
+            the most relevant, useful and safe bots has been introduced. This
+            project is also aimed at helping developers implement and promote
+            their bots. On this platform, every developer will be able to post
+            their project and promote it through the overall rating.
           </p>
         </div>
       ) : (
-        <div className="mt-5 ">
-          <p>На данной агрегате вы сможете подобрать бота:</p>
-          <ul className="mt-5 list-disc list-inside">
+        <div className="flex flex-col justify-between flex-grow h-full mt-8 text-xl ">
+          <div>
+            <p className="text-2xl font-medium">On this unit you can select a bot:</p>
+            <span className="flex mt-2">
+              For buying and selling cryptocurrency For automated trading To
+              collect and analyze all the latest news and insights on the market{" "}
+              <br />
+              For copy trading For sending funds and storage For chart analysis
+              and technical analysis For P2P trading To obtain up-to-date data
+              on rates and trading volumes
+            </span>
+          </div>
+          <span className="flex px-12 text-center">
+            @ 2025 TopBotCheck by 3A Project
+          </span>
+          {/* <ul className="mt-5 list-disc list-inside">
             <li>Для покупки и продажи криптовалюты</li>
             <li>Для автоматизированной торговли </li>
             <li>
@@ -40,7 +53,7 @@ const Main = () => {
             <li>Для анализа графиков и технический анализ</li>
             <li>Для Р2Р торговли</li>
             <li>Для получения актуальные данные о курсах и объемах торгов</li>
-          </ul>
+          </ul> */}
         </div>
       )}
       <div className="flex flex-col justify-end flex-grow gap-5">
@@ -60,7 +73,7 @@ const Main = () => {
           onClick={() => goPage()}
           className="w-full py-5 text-4xl font-semibold bg-blue-500 hover:bg-blue-500/80 rounded-3xl"
         >
-          {step == 0 ? "Далее" : "Начать"}
+          {step == 0 ? "Next" : "Begin"}
         </button>
       </div>
     </div>
