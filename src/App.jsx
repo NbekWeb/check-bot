@@ -15,7 +15,7 @@ const App = () => {
     let init_data_route = "http://158.160.163.50:8080/api/v1/check/init-data";
     const initData = tg.initData;
     console.log(initData);
-    console.log(JSON.parse(initData));
+    console.log(JSON.parse(initData.query_id));
     fetch(init_data_route, {
       method: "POST",
       body: JSON.stringify(initData),
