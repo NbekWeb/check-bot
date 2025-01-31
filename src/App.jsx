@@ -26,6 +26,7 @@ const App = () => {
         localStorage.setItem("token", tokenFromTelegram);
       }
     }
+    console.log('salo')
   }, []);
   return (
     <div className="min-h-[100dvh]  bg-main px-3.5 py-5 flex flex-col">
