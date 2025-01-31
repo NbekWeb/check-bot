@@ -17,7 +17,7 @@ const App = () => {
 
     fetch(init_data_route, {
       method: "POST",
-      body: JSON.stringify({ initData }),
+      body: JSON.stringify(initData),
       headers: {
         "Content-Type": "application/json",
       },
@@ -26,7 +26,7 @@ const App = () => {
       .then((json) => console.log(json))
       .catch((error) => console.error("Error fetching init data:", error));
   }, []);
-  
+
   return (
     <div className="min-h-[100dvh]  bg-main px-3.5 py-5 flex flex-col">
       <Router>
