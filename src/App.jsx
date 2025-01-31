@@ -17,7 +17,7 @@ const App = () => {
     console.log(initData);
     fetch(init_data_route, {
       method: "POST",
-      body: initData,
+      body: initData.query_id,
       headers: {
         "Content-Type": "application/json",
       },
