@@ -13,20 +13,24 @@ const App = () => {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    if (window.Telegram?.WebApp) {
-      let tg = window.Telegram.WebApp;
-      let initData = new URLSearchParams(tg.initData);
+    const tg = window.Telegram.WebApp; // Get the Telegram WebApp object
+    const initData = tg.initData; // Get init data
 
-      console.log("Telegram initData:", tg.initData);
+    const initDataRoute = ""; // Set your backend URL (e.g., ngrok or local API)
 
-      // Extract token (hash) from initData
-      const tokenFromTelegram = initData.get("hash");
-      if (tokenFromTelegram) {
-        setToken(tokenFromTelegram);
-        localStorage.setItem("token", tokenFromTelegram);
-      }
-    }
-    console.log('salo')
+    // Send initData to the backend
+    fetch(initDataRoute, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ initData }), // Send initData as JSON
+    })
+      .then((response) => response.json())
+      .then((json) => console.log("Response from server:", json))
+      .catch((error) => console.error("Error:", error));
+
+    console.log("salo");
   }, []);
   return (
     <div className="min-h-[100dvh]  bg-main px-3.5 py-5 flex flex-col">
@@ -40,7 +44,7 @@ const App = () => {
           <Route path="/" element={<Main />} />
           <Route path="/home" element={<Home />} />
           <Route path="/bot" element={<Bot />} />
-          <Route path="/see"  element={<SeeAll />} />
+          <Route path="/see" element={<SeeAll />} />
           <Route path="/all-category" element={<AllCategory />} />
           <Route path="/spam" element={<Spam />} />
         </Routes>
