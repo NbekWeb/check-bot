@@ -10,34 +10,23 @@ import AllCategory from "./components/AllCategory";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [token, setToken] = useState(null);
-
   useEffect(() => {
-    // Ensure Telegram WebApp is available
-    if (window.Telegram && window.Telegram.WebApp) {
-      const tg = window.Telegram.WebApp;
-      const initData = tg.initData;
-      console.log("Telegram initData:", initData);
+    let tg = window.Telegram.WebApp; // Telegram WebApp obyektini olish
+    let init_data_route = "http://158.160.163.50:8080/api/v1/check/init-data"; // API yo'li
+    const initData = tg.initData;
 
-      const initDataRoute = "http://localhost:5000/auth"; // Change to your backend route
-
-      // Send initData to backend
-      // fetch(initDataRoute, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ initData }),
-      // })
-      //   .then((response) => response.json())
-      //   .then((json) => console.log("Response from server:", json))
-      //   .catch((error) => console.error("Error:", error));
-    } else {
-      console.error(
-        "Telegram WebApp is not available. Make sure this is running inside Telegram Mini App."
-      );
-    }
+    fetch(init_data_route, {
+      method: "POST",
+      body: JSON.stringify({ initData }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((error) => console.error("Error fetching init data:", error));
   }, []);
+  
   return (
     <div className="min-h-[100dvh]  bg-main px-3.5 py-5 flex flex-col">
       <Router>
