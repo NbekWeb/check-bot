@@ -14,7 +14,7 @@ const App = () => {
     let tg = window.Telegram.WebApp; // Telegram WebApp obyektini olish
     let init_data_route = "http://158.160.163.50:8080/api/v1/check/init-data"; // API yo'li
     const initData = tg.initData;
-
+console.log(initData)
     fetch(init_data_route, {
       method: "POST",
       body: JSON.stringify(initData),
