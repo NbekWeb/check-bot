@@ -13,24 +13,30 @@ const App = () => {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    const tg = window.Telegram.WebApp; // Get the Telegram WebApp object
-    const initData = tg.initData; // Get init data
+    // Ensure Telegram WebApp is available
+    if (window.Telegram && window.Telegram.WebApp) {
+      const tg = window.Telegram.WebApp;
+      const initData = tg.initData;
+      console.log("Telegram initData:", initData);
 
-    const initDataRoute = ""; // Set your backend URL (e.g., ngrok or local API)
+      const initDataRoute = "http://localhost:5000/auth"; // Change to your backend route
 
-    // Send initData to the backend
-    fetch(initDataRoute, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ initData }), // Send initData as JSON
-    })
-      .then((response) => response.json())
-      .then((json) => console.log("Response from server:", json))
-      .catch((error) => console.error("Error:", error));
-
-    console.log("salo");
+      // Send initData to backend
+      // fetch(initDataRoute, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ initData }),
+      // })
+      //   .then((response) => response.json())
+      //   .then((json) => console.log("Response from server:", json))
+      //   .catch((error) => console.error("Error:", error));
+    } else {
+      console.error(
+        "Telegram WebApp is not available. Make sure this is running inside Telegram Mini App."
+      );
+    }
   }, []);
   return (
     <div className="min-h-[100dvh]  bg-main px-3.5 py-5 flex flex-col">
