@@ -11,10 +11,11 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   useEffect(() => {
-    let tg = window.Telegram.WebApp; // Telegram WebApp obyektini olish
-    let init_data_route = "http://158.160.163.50:8080/api/v1/check/init-data"; // API yo'li
+    let tg = window.Telegram.WebApp;
+    let init_data_route = "http://158.160.163.50:8080/api/v1/check/init-data";
     const initData = tg.initData;
-console.log(initData)
+    console.log(initData);
+    console.log(JSON.parse(initData));
     fetch(init_data_route, {
       method: "POST",
       body: JSON.stringify(initData),
