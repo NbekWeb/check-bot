@@ -7,7 +7,26 @@ import SeeAll from "./components/SeeAll";
 import Spam from "./components/Spam";
 import AllCategory from "./components/AllCategory";
 
+import { useEffect, useState } from "react";
+
 const App = () => {
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      let tg = window.Telegram.WebApp;
+      let initData = new URLSearchParams(tg.initData);
+
+      console.log("Telegram initData:", tg.initData);
+
+      // Extract token (hash) from initData
+      const tokenFromTelegram = initData.get("hash");
+      if (tokenFromTelegram) {
+        setToken(tokenFromTelegram);
+        localStorage.setItem("token", tokenFromTelegram);
+      }
+    }
+  }, []);
   return (
     <div className="min-h-[100dvh]  bg-main px-3.5 py-5 flex flex-col">
       <Router>
